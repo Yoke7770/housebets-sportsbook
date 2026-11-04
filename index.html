@@ -1,466 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOUSEBETS | Premium Sports</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOUSEBETS | Premium Sports</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-function showProfile(name, country, league, stadium) {
-  document.getElementById("profileName").textContent = name;
-  document.getElementById("profileCountry").textContent =
-    "Country: " + country;
-  document.getElementById("profileLeague").textContent =
-    "League: " + league;
-  document.getElementById("profileStadium").textContent =
-    "Stadium: " + stadium;
+    body {
+      margin: 0;
+      padding-bottom: 75px;
+      background: #080808;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-  const profile = document.getElementById("teamProfile");
-  profile.style.display = "block";
-  profile.scrollIntoView({behavior: "smooth"});
-}
+    header {
+      background: #111;
+      padding: 22px;
+      border-bottom: 1px solid #c9a227;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-function closeProfile() {
-  document.getElementById("teamProfile").style.display = "none";
-}
-</script>
-</script> function filterTeams() {
-  const search = document
-    .getElementById("teamSearch")
-    .value.toLowerCase();
+    .logo {
+      color: #e8c35b;
+      font-size: 23px;
+      font-weight: bold;
+    }
 
-  const league = document
-    .getElementById("leagueFilter")
-    .value;
+    .badge {
+      color: #e8c35b;
+      font-size: 11px;
+    }
 
-  const teams = document.querySelectorAll(".team-item");
-  let count = 0;
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 16px 5px;
+      background: #171717;
+      overflow-x: auto;
+    }
 
-  teams.forEach(team => {
-    const name = team.innerText.toLowerCase();
+    nav a {
+      color: #e8c35b;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 5px;
+    }
 
-    const matchesSearch = name.includes(search);
+    .container {
+      padding: 18px;
+      max-width: 850px;
+      margin: auto;
+    }
 
-    const matchesLeague =
-      league === "all" ||
-      team.dataset.league === league;
+    .hero {
+      background: linear-gradient(135deg, #29220e, #111);
+      border: 1px solid #a8892c;
+      border-radius: 14px;
+      padding: 28px 20px;
+      margin-top: 15px;
+    }
 
-    const show = matchesSearch && matchesLeague;
+    .hero h1 {
+      color: #e8c35b;
+      font-size: 30px;
+    }
 
-    team.style.display = show ? "block" : "none";
+    .section-title {
+      color: #e8c35b;
+      margin-top: 30px;
+    }
 
-    if (show) count++;
-  });
+    .card {
+      background: #171717;
+      border: 1px solid #393020;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 12px 0;
+    }
 
-  document.getElementById("teamCount").textContent =
-    count + " teams found";
-}
+    .card h3 {
+      color: #e8c35b;
+      margin-top: 0;
+    }
 
-filterTeams();
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #111;
-  border-top: 1px solid #c9a227;
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 4px;
-  z-index: 1000;
-}
+    .tag {
+      color: #bca45c;
+      font-size: 12px;
+    }
 
-.bottom-nav a {
-  color: #e8c35b;
-  text-decoration: none;
-  font-size: 12px;
-  text-align: center;
-}
+    button {
+      background: #d5b044;
+      color: #111;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
 
-.bottom-nav span {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 4px;
-}
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      border-top: 1px solid #c9a227;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 4px;
+      z-index: 1000;
+    }
 
-body {
-  padding-bottom: 75px;
-}
+    .bottom-nav a {
+      color: #e8c35b;
+      text-decoration: none;
+      font-size: 12px;
+      text-align: center;
+    }
 
-.auth-box {
-  background: #171717;
-  border: 1px solid #c9a227;
-  border-radius: 14px;
-  padding: 20px;
-  margin: 20px 0;
-}
+    .bottom-nav span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
 
-.auth-box input {
-  width: 100%;
-  padding: 13px;
-  margin: 8px 0;
-  background: #252525;
-  color: white;
-  border: 1px solid #c9a227;
-  border-radius: 7px;
-  box-sizing: border-box;
-}
+    .auth-box {
+      background: #171717;
+      border: 1px solid #c9a227;
+      border-radius: 14px;
+      padding: 20px;
+      margin: 20px 0;
+    }
 
-.auth-box button {
-  width: 100%;
-  margin-top: 10px;
-}
+    .auth-box input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      background: #252525;
+      color: white;
+      border: 1px solid #c9a227;
+      border-radius: 7px;
+      box-sizing: border-box;
+    }
 
-.auth-message {
-  color: #e8c35b;
-}
+    .auth-box button {
+      width: 100%;
+      margin-top: 10px;
+    }
 
+    .auth-message {
+      color: #e8c35b;
+    }
 
-<style>
-* {
-  box-sizing: border-box;
-}
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      border-top: 1px solid #393020;
+      margin-top: 40px;
+    }
 
-body {
-  margin: 0;
-  background: #080808;
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
+    body.light-mode {
+      background: #f4f4f4;
+      color: #171717;
+    }
 
-header {
-  background: #111;
-  padding: 22px;
-  border-bottom: 1px solid #c9a227;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    body.light-mode header,
+    body.light-mode nav,
+    body.light-mode .bottom-nav {
+      background: #ffffff;
+    }
 
-.logo {
-  color: #e8c35b;
-  font-size: 23px;
-  font-weight: bold;
-}
+    body.light-mode .card {
+      background: #ffffff;
+      border-color: #d6b85a;
+    }
 
-.badge {
-  color: #e8c35b;
-  font-size: 11px;
-}
+    body.light-mode .hero {
+      background: #eee5c8;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  padding: 16px 5px;
-  background: #171717;
-  overflow-x: auto;
-}
+    body.light-mode p {
+      color: #333;
+    }
 
-nav a {
-  color: #e8c35b;
-  text-decoration: none;
-  font-size: 13px;
-  padding: 5px;
-}
-
-.container {
-  padding: 18px;
-  max-width: 850px;
-  margin: auto;
-}
-
-.hero {
-  background: linear-gradient(135deg, #29220e, #111);
-  border: 1px solid #a8892c;
-  border-radius: 14px;
-  padding: 28px 20px;
-  margin-top: 15px;
-}
-
-.hero h1 {
-  color: #e8c35b;
-  font-size: 30px;
-}
-
-.section-title {
-  color: #e8c35b;
-  margin-top: 30px;
-}
-
-.card {
-  background: #171717;
-  border: 1px solid #393020;
-  border-radius: 12px;
-  padding: 18px;
-  margin: 12px 0;
-}
-
-.card h3 {
-  color: #e8c35b;
-  margin-top: 0;
-}
-
-.tag {
-  color: #bca45c;
-  font-size: 12px;
-}
-
-button {
-  background: #d5b044;
-  color: #111;
-  border: none;
-  padding: 11px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #888;
-  border-top: 1px solid #393020;
-  margin-top: 40px;
-}
-
-body.light-mode {
-  background: #f4f4f4;
-  color: #171717;
-}
-
-body.light-mode header,
-body.light-mode nav,
-body.light-mode .bottom-nav {
-  background: #ffffff;
-}
-
-body.light-mode .card {
-  background: #ffffff;
-  border-color: #d6b85a;
-}
-
-body.light-mode .hero {
-  background: #eee5c8;
-}
-
-body.light-mode p {
-  color: #333;
-}
-
-.theme-button {
-  background: #d5b044;
-  color: #111;
-  border: none;
-  padding: 9px 12px;
-  border-radius: 7px;
-  cursor: pointer;
-}
-  
-</style>
+    .theme-button {
+      background: #d5b044;
+      color: #111;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="logo">HOUSEBETS</div>
+    <div class="badge">PREMIUM SPORTS</div>
+  </header>
 
-<header>
-  <div class="logo">HOUSEBETS</div>
-  <div class="badge">PREMIUM SPORTS</div>
-</header>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#football">FOOTBALL</a>
+    <a href="#scores">SCORES</a>
+    <a href="#fixtures">FIXTURES</a>
+    <a href="#news">NEWS</a>
+  </nav>
 
-<nav>
-  <a href="#home">HOME</a>
-  <a href="#football">FOOTBALL</a>
-  <a href="#scores">SCORES</a>
-  <a href="#fixtures">FIXTURES</a>
-  <a href="#news">NEWS</a>
-</nav>
+  <div id="teamDirectory">
+    <input type="text" id="teamSearch" placeholder="Search teams..." aria-label="Search teams">
+    <select id="leagueFilter" aria-label="Filter by league">
+      <option value="all">All leagues</option>
+      <option value="Premier League">Premier League</option>
+      <option value="La Liga">La Liga</option>
+      <option value="Bundesliga">Bundesliga</option>
+      <option value="Serie A">Serie A</option>
+    </select>
+    <p id="teamCount" aria-live="polite"></p>
 
-<div id="teamDirectory">
+    <div class="team-item" data-league="Premier League">
+      <h3>🔴 Manchester United</h3>
+      <p>England · Premier League</p>
+      <button type="button" onclick="showProfile('Manchester United', 'England', 'Premier League', 'Old Trafford')">View Profile</button>
+    </div>
 
-  <div class="team-item" data-league="Premier League">
-    <h3>🔴 Manchester United</h3>
-    <p>England · Premier League</p>
-    <button onclick="showProfile('Manchester United','England','Premier League','Old Trafford')">View Profile</button>
+    <div class="team-item" data-league="Premier League">
+      <h3>🔵 Manchester City</h3>
+      <p>England · Premier League</p>
+      <button type="button" onclick="showProfile('Manchester City', 'England', 'Premier League', 'Etihad Stadium')">View Profile</button>
+    </div>
+
+    <div class="team-item" data-league="La Liga">
+      <h3>⚪ Real Madrid</h3>
+      <p>Spain · La Liga</p>
+      <button type="button" onclick="showProfile('Real Madrid', 'Spain', 'La Liga', 'Santiago Bernabéu')">View Profile</button>
+    </div>
+
+    <div class="team-item" data-league="La Liga">
+      <h3>🔵 Barcelona</h3>
+      <p>Spain · La Liga</p>
+      <button type="button" onclick="showProfile('Barcelona', 'Spain', 'La Liga', 'Spotify Camp Nou')">View Profile</button>
+    </div>
+
+    <div class="team-item" data-league="Bundesliga">
+      <h3>🔴 Bayern Munich</h3>
+      <p>Germany · Bundesliga</p>
+      <button type="button" onclick="showProfile('Bayern Munich', 'Germany', 'Bundesliga', 'Allianz Arena')">View Profile</button>
+    </div>
+
+    <div class="team-item" data-league="Serie A">
+      <h3>🔵 Inter Milan</h3>
+      <p>Italy · Serie A</p>
+      <button type="button" onclick="showProfile('Inter Milan', 'Italy', 'Serie A', 'San Siro')">View Profile</button>
+    </div>
   </div>
 
-  <div class="team-item" data-league="Premier League">
-    <h3>🔵 Manchester City</h3>
-    <p>England · Premier League</p>
-    <button onclick="showProfile('Manchester City','England','Premier League','Etihad Stadium')">View Profile</button>
+  <div id="teamProfile" class="card" style="display: none;">
+    <h2 id="profileName"></h2>
+    <p id="profileCountry"></p>
+    <p id="profileLeague"></p>
+    <p id="profileStadium"></p>
+    <button type="button" onclick="closeProfile()">Close Profile</button>
   </div>
 
-  <div class="team-item" data-league="La Liga">
-    <h3>⚪ Real Madrid</h3>
-    <p>Spain · La Liga</p>
-    <button onclick="showProfile('Real Madrid','Spain','La Liga','Santiago Bernabéu')">View Profile</button>
+  <div class="container">
+    <div class="card">
+      <h3>🔎 Search Sports</h3>
+      <input
+        type="text"
+        id="sportsSearch"
+        placeholder="Search teams, leagues or sports..."
+        oninput="searchSports()"
+        style="width: 100%; padding: 14px; border-radius: 8px; background: #222; color: white; border: 1px solid #c9a227;"
+      >
+      <p id="searchMessage" aria-live="polite"></p>
+    </div>
+
+    <section class="hero" id="home">
+      <p class="tag">WELCOME TO HOUSEBETS</p>
+      <h1>THE WORLD OF SPORTS</h1>
+      <p>Follow your favorite sports, teams and competitions.</p>
+    </section>
+
+    <h2 class="section-title" id="football">⚽ Football</h2>
+
+    <div class="card">
+      <h3>Premier League</h3>
+      <p>Discover English football teams and competition updates.</p>
+    </div>
+
+    <div class="card">
+      <h3>Champions League</h3>
+      <p>Explore European football news and team information.</p>
+    </div>
+
+    <h2 class="section-title">⭐ Popular Teams</h2>
+
+    <div class="card">
+      <h3>🔴 Manchester United</h3>
+      <p>Country: England</p>
+      <p>League: Premier League</p>
+      <button type="button" onclick="showTeam('Manchester United')">View Team</button>
+    </div>
+
+    <div class="card">
+      <h3>🔵 Manchester City</h3>
+      <p>Country: England</p>
+      <p>League: Premier League</p>
+      <button type="button" onclick="showTeam('Manchester City')">View Team</button>
+    </div>
+
+    <div class="card">
+      <h3>⚪ Real Madrid</h3>
+      <p>Country: Spain</p>
+      <p>League: La Liga</p>
+      <button type="button" onclick="showTeam('Real Madrid')">View Team</button>
+    </div>
+
+    <div class="card">
+      <h3>🔵 Barcelona</h3>
+      <p>Country: Spain</p>
+      <p>League: La Liga</p>
+      <button type="button" onclick="showTeam('Barcelona')">View Team</button>
+    </div>
+
+    <div id="teamInfo" class="card" style="display: none;"></div>
+
+    <h2 class="section-title">🏟️ MATCH CENTER</h2>
+
+    <div class="card">
+      <h3>Premier League</h3>
+      <p>Manchester City vs Arsenal</p>
+      <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
+    </div>
+
+    <div class="card">
+      <h3>La Liga</h3>
+      <p>Real Madrid vs Barcelona</p>
+      <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
+    </div>
+
+    <div class="card">
+      <h3>Champions League</h3>
+      <p>Paris Saint-Germain vs Bayern Munich</p>
+      <p class="tag">SAMPLE FIXTURE</p>
+    </div>
+
+    <h2 class="section-title" id="scores">📊 Match Scores</h2>
+
+    <div class="card">
+      <h3>Sports Score Center</h3>
+      <p>Match results and score updates will appear here.</p>
+      <span class="tag">SCORE INFORMATION</span>
+    </div>
+
+    <h2 class="section-title">📰 SPORTS NEWS</h2>
+
+    <div class="card">
+      <span class="tag">FOOTBALL</span>
+      <h3>Premier League Updates</h3>
+      <p>Follow the latest English football team news and competition updates.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag">CHAMPIONS LEAGUE</span>
+      <h3>European Football</h3>
+      <p>Discover European club football news and tournament highlights.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag">BASKETBALL</span>
+      <h3>Basketball Updates</h3>
+      <p>Explore basketball teams, competitions and player news.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag">TENNIS</span>
+      <h3>Tennis Updates</h3>
+      <p>Keep up with tennis tournaments and player performances.</p>
+    </div>
+
+    <h2 class="section-title" id="fixtures">📅 Upcoming Fixtures</h2>
+
+    <div class="card">
+      <h3>Football Fixtures</h3>
+      <p>Upcoming match schedules and competition information.</p>
+    </div>
+
+    <h2 class="section-title" id="news">📰 Sports News</h2>
+
+    <div class="card">
+      <h3>Latest Sports Updates</h3>
+      <p>News, team updates and sports highlights.</p>
+    </div>
   </div>
 
-  <div class="team-item" data-league="La Liga">
-    <h3>🔵 Barcelona</h3>
-    <p>Spain · La Liga</p>
-    <button onclick="showProfile('Barcelona','Spain','La Liga','Spotify Camp Nou')">View Profile</button>
-  </div>
+  <footer>
+    HOUSEBETS © 2026<br>
+    Premium Sports Information
+  </footer>
 
-  <div class="team-item" data-league="Bundesliga">
-    <h3>🔴 Bayern Munich</h3>
-    <p>Germany · Bundesliga</p>
-    <button onclick="showProfile('Bayern Munich','Germany','Bundesliga','Allianz Arena')">View Profile</button>
-  </div>
+  <script>
+    function showProfile(name, country, league, stadium) {
+      document.getElementById("profileName").textContent = name;
+      document.getElementById("profileCountry").textContent = "Country: " + country;
+      document.getElementById("profileLeague").textContent = "League: " + league;
+      document.getElementById("profileStadium").textContent = "Stadium: " + stadium;
 
-  <div class="team-item" data-league="Serie A">
-    <h3>🔵 Inter Milan</h3>
-    <p>Italy · Serie A</p>
-    <button onclick="showProfile('Inter Milan','Italy','Serie A','San Siro')">View Profile</button>
-  </div>
+      const profile = document.getElementById("teamProfile");
+      profile.style.display = "block";
+      profile.scrollIntoView({ behavior: "smooth" });
+    }
 
-</div>
+    function closeProfile() {
+      document.getElementById("teamProfile").style.display = "none";
+    }
 
-<div id="teamProfile" class="card" style="display:none;">
-  <h2 id="profileName"></h2>
-  <p id="profileCountry"></p>
-  <p id="profileLeague"></p>
-  <p id="profileStadium"></p>
-  <button onclick="closeProfile()">Close Profile</button>
-</div>
-<div class="container">
-<div class="card">
-  <h3>🔎 Search Sports</h3>
-  <input
-    type="text"
-    id="sportsSearch"
-    placeholder="Search teams, leagues or sports..."
-    oninput="searchSports()"
-    style="width:100%;padding:14px;border-radius:8px;background:#222;color:white;border:1px solid #c9a227;"
-  >
-  <p id="searchMessage"></p>
-</div>
-<section class="hero" id="home">
-  <p class="tag">WELCOME TO HOUSEBETS</p>
-  <h1>THE WORLD OF SPORTS</h1>
-  <p>Follow your favorite sports, teams and competitions.</p>
-</section>
+    function filterTeams() {
+      const search = document.getElementById("teamSearch").value.toLowerCase();
+      const league = document.getElementById("leagueFilter").value;
+      const teams = document.querySelectorAll(".team-item");
+      let count = 0;
 
-<h2 class="section-title" id="football">⚽ Football</h2>
+      teams.forEach(team => {
+        const name = team.innerText.toLowerCase();
+        const matchesSearch = name.includes(search);
+        const matchesLeague = league === "all" || team.dataset.league === league;
+        const isVisible = matchesSearch && matchesLeague;
 
-<div class="card">
-  <h3>Premier League</h3>
-  <p>Discover English football teams and competition updates.</p>
-</div>
+        team.style.display = isVisible ? "block" : "none";
+        if (isVisible) count++;
+      });
 
-<div class="card">
-  <h3>Champions League</h3>
-  <p>Explore European football news and team information.</p>
-</div>
-<h2 class="section-title">⭐ Popular Teams</h2>
+      document.getElementById("teamCount").textContent = count + " teams found";
+    }
 
-<div class="card">
-  <h3>🔴 Manchester United</h3>
-  <p>Country: England</p>
-  <p>League: Premier League</p>
-  <button onclick="showTeam('Manchester United')">
-    View Team
-  </button>
-</div>
+    function searchSports() {
+      const search = document.getElementById("sportsSearch").value.trim().toLowerCase();
+      const searchableItems = document.querySelectorAll(".team-item, .container > .card:not(:first-child)");
+      let count = 0;
 
-<div class="card">
-  <h3>🔵 Manchester City</h3>
-  <p>Country: England</p>
-  <p>League: Premier League</p>
-  <button onclick="showTeam('Manchester City')">
-    View Team
-  </button>
-</div>
+      searchableItems.forEach(item => {
+        const isVisible = !search || item.innerText.toLowerCase().includes(search);
+        item.style.display = isVisible ? "" : "none";
+        if (isVisible && search) count++;
+      });
 
-<div class="card">
-  <h3>⚪ Real Madrid</h3>
-  <p>Country: Spain</p>
-  <p>League: La Liga</p>
-  <button onclick="showTeam('Real Madrid')">
-    View Team
-  </button>
-</div>
+      document.getElementById("searchMessage").textContent = search
+        ? count + " matching items found"
+        : "";
+    }
 
-<div class="card">
-  <h3>🔵 Barcelona</h3>
-  <p>Country: Spain</p>
-  <p>League: La Liga</p>
-  <button onclick="showTeam('Barcelona')">
-    View Team
-  </button>
-</div>
+    function showTeam(teamName) {
+      const teamInfo = document.getElementById("teamInfo");
+      const teams = {
+        "Manchester United": ["England", "Premier League", "Old Trafford"],
+        "Manchester City": ["England", "Premier League", "Etihad Stadium"],
+        "Real Madrid": ["Spain", "La Liga", "Santiago Bernabéu"],
+        "Barcelona": ["Spain", "La Liga", "Spotify Camp Nou"]
+      };
+      const team = teams[teamName];
 
-<div id="teamInfo" class="card" style="display:none;"></div> 
+      if (!team) return;
 
-  <h2 class="section-title">🏟️ MATCH CENTER</h2>
+      teamInfo.replaceChildren();
+      const heading = document.createElement("h3");
+      heading.textContent = teamName;
+      teamInfo.appendChild(heading);
 
-<div class="card">
-  <h3>Premier League</h3>
-  <p>Manchester City vs Arsenal</p>
-  <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
-</div>
+      ["Country: " + team[0], "League: " + team[1], "Stadium: " + team[2]].forEach(text => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        teamInfo.appendChild(paragraph);
+      });
 
-<div class="card">
-  <h3>La Liga</h3>
-  <p>Real Madrid vs Barcelona</p>
-  <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
-</div>
+      teamInfo.style.display = "block";
+      teamInfo.scrollIntoView({ behavior: "smooth" });
+    }
 
-<div class="card">
-  <h3>Champions League</h3>
-  <p>Paris Saint-Germain vs Bayern Munich</p>
-  <p class="tag">SAMPLE FIXTURE</p>
-</div>
-<h2 class="section-title" id="scores">📊 Match Scores</h2>
+    document.getElementById("teamSearch").addEventListener("input", filterTeams);
+    document.getElementById("leagueFilter").addEventListener("change", filterTeams);
 
-<div class="card">
-  <h3>Sports Score Center</h3>
-  <p>Match results and score updates will appear here.</p>
-  <span class="tag">SCORE INFORMATION</span>
-</div>
-
-<h2 class="section-title">📰 SPORTS NEWS</h2>
-
-<div class="card">
-  <span class="tag">FOOTBALL</span>
-  <h3>Premier League Updates</h3>
-  <p>Follow the latest English football team news and competition updates.</p>
-</div>
-
-<div class="card">
-  <span class="tag">CHAMPIONS LEAGUE</span>
-  <h3>European Football</h3>
-  <p>Discover European club football news and tournament highlights.</p>
-</div>
-
-<div class="card">
-  <span class="tag">BASKETBALL</span>
-  <h3>Basketball Updates</h3>
-  <p>Explore basketball teams, competitions and player news.</p>
-</div>
-
-<div class="card">
-  <span class="tag">TENNIS</span>
-  <h3>Tennis Updates</h3>
-  <p>Keep up with tennis tournaments and player performances.</p>
-</div>
-  
-<h2 class="section-title" id="fixtures">📅 Upcoming Fixtures</h2>
-
-<div class="card">
-  <h3>Football Fixtures</h3>
-  <p>Upcoming match schedules and competition information.</p>
-</div>
-
-<h2 class="section-title" id="news">📰 Sports News</h2>
-
-<div class="card">
-  <h3>Latest Sports Updates</h3>
-  <p>News, team updates and sports highlights.</p>
-</div>
-
-</div>
-
-<footer>
-  HOUSEBETS © 2026<br>
-  Premium Sports Information
-</footer>
-
+    filterTeams();
+  </script>
 </body>
 </html>
