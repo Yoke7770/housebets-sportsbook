@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOUSEBETS | Premium Sports</title>
 
+function showProfile(name, country, league, stadium) {
+  document.getElementById("profileName").textContent = name;
+  document.getElementById("profileCountry").textContent =
+    "Country: " + country;
+  document.getElementById("profileLeague").textContent =
+    "League: " + league;
+  document.getElementById("profileStadium").textContent =
+    "Stadium: " + stadium;
+
+  const profile = document.getElementById("teamProfile");
+  profile.style.display = "block";
+  profile.scrollIntoView({behavior: "smooth"});
+}
+
+function closeProfile() {
+  document.getElementById("teamProfile").style.display = "none";
+}
+</script>
 </script> function filterTeams() {
   const search = document
     .getElementById("teamSearch")
