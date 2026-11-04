@@ -63,7 +63,33 @@ body {
   color: #e8c35b;
 }
 
+.team-search {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  border: 1px solid #c9a227;
+  margin: 12px 0;
+}
 
+.league-select {
+  width: 100%;
+  padding: 13px;
+  background: #171717;
+  color: #e8c35b;
+  border: 1px solid #c9a227;
+  border-radius: 8px;
+}
+
+.team-item {
+  background: #171717;
+  padding: 16px;
+  margin: 10px 0;
+  border: 1px solid #393020;
+  border-radius: 10px;
+}
+  
 <style>
 * {
   box-sizing: border-box;
@@ -202,6 +228,22 @@ body.light-mode p {
   border-radius: 7px;
   cursor: pointer;
 }
+
+  .filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.filter-buttons button {
+  flex: 1;
+  min-width: 90px;
+}
+
+.sport-card {
+  transition: 0.2s;
+}
   
 </style>
 </head>
@@ -317,6 +359,17 @@ body.light-mode p {
   <span class="tag">SCORE INFORMATION</span>
 </div>
 
+<h2 class="section-title">👤 MY DASHBOARD</h2>
+
+<div class="card">
+  <h3>Welcome, <span id="dashboardName">Guest</span>!</h3>
+
+  <p>Membership: Demo Member</p>
+
+  <p>Account status: <span class="tag">ACTIVE DEMO</span></p>
+
+  <button onclick="logoutDemo()">Logout</button>
+</div>
 <h2 class="section-title">📰 SPORTS NEWS</h2>
 
 <div class="card">
