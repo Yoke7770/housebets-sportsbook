@@ -89,7 +89,32 @@ body {
   border: 1px solid #393020;
   border-radius: 10px;
 }
-  
+  .standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center;
+}
+
+.standings th {
+  color: #e8c35b;
+  background: #252015;
+  padding: 12px 5px;
+}
+
+.standings td {
+  padding: 12px 5px;
+  border-bottom: 1px solid #393020;
+}
+
+.standings tr:hover {
+  background: #252015;
+}
+
+.team-name {
+  text-align: left;
+  font-weight: bold;
+}
 <style>
 * {
   box-sizing: border-box;
@@ -402,7 +427,31 @@ body.light-mode p {
   <h3>Football Fixtures</h3>
   <p>Upcoming match schedules and competition information.</p>
 </div>
+<h2 class="section-title">📊 TEAM STATISTICS</h2>
 
+<div class="card">
+  <h3>Manchester City</h3>
+  <p>Matches played: 10</p>
+  <p>Wins: 7 | Draws: 2 | Losses: 1</p>
+  <p>Goals scored: 24</p>
+  <span class="tag">DEMO STATISTICS</span>
+</div>
+
+<div class="card">
+  <h3>Arsenal</h3>
+  <p>Matches played: 10</p>
+  <p>Wins: 6 | Draws: 3 | Losses: 1</p>
+  <p>Goals scored: 21</p>
+  <span class="tag">DEMO STATISTICS</span>
+</div>
+
+<div class="card">
+  <h3>Real Madrid</h3>
+  <p>Matches played: 10</p>
+  <p>Wins: 8 | Draws: 1 | Losses: 1</p>
+  <p>Goals scored: 25</p>
+  <span class="tag">DEMO STATISTICS</span>
+</div>
 <h2 class="section-title" id="news">📰 Sports News</h2>
 
 <div class="card">
