@@ -5,6 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOUSEBETS | Premium Sports</title>
 
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  border-top: 1px solid #c9a227;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 4px;
+  z-index: 1000;
+}
+
+.bottom-nav a {
+  color: #e8c35b;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+}
+
+.bottom-nav span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+body {
+  padding-bottom: 75px;
+}
+
+.auth-box {
+  background: #171717;
+  border: 1px solid #c9a227;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  background: #252525;
+  color: white;
+  border: 1px solid #c9a227;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+.auth-box button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-message {
+  color: #e8c35b;
+}
+
+
 <style>
 * {
   box-sizing: border-box;
@@ -110,6 +169,40 @@ footer {
   border-top: 1px solid #393020;
   margin-top: 40px;
 }
+
+body.light-mode {
+  background: #f4f4f4;
+  color: #171717;
+}
+
+body.light-mode header,
+body.light-mode nav,
+body.light-mode .bottom-nav {
+  background: #ffffff;
+}
+
+body.light-mode .card {
+  background: #ffffff;
+  border-color: #d6b85a;
+}
+
+body.light-mode .hero {
+  background: #eee5c8;
+}
+
+body.light-mode p {
+  color: #333;
+}
+
+.theme-button {
+  background: #d5b044;
+  color: #111;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+  
 </style>
 </head>
 
@@ -195,7 +288,27 @@ footer {
   </button>
 </div>
 
-<div id="teamInfo" class="card" style="display:none;"></div>
+<div id="teamInfo" class="card" style="display:none;"></div> 
+
+  <h2 class="section-title">🏟️ MATCH CENTER</h2>
+
+<div class="card">
+  <h3>Premier League</h3>
+  <p>Manchester City vs Arsenal</p>
+  <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
+</div>
+
+<div class="card">
+  <h3>La Liga</h3>
+  <p>Real Madrid vs Barcelona</p>
+  <p class="tag">UPCOMING · SAMPLE FIXTURE</p>
+</div>
+
+<div class="card">
+  <h3>Champions League</h3>
+  <p>Paris Saint-Germain vs Bayern Munich</p>
+  <p class="tag">SAMPLE FIXTURE</p>
+</div>
 <h2 class="section-title" id="scores">📊 Match Scores</h2>
 
 <div class="card">
@@ -204,6 +317,32 @@ footer {
   <span class="tag">SCORE INFORMATION</span>
 </div>
 
+<h2 class="section-title">📰 SPORTS NEWS</h2>
+
+<div class="card">
+  <span class="tag">FOOTBALL</span>
+  <h3>Premier League Updates</h3>
+  <p>Follow the latest English football team news and competition updates.</p>
+</div>
+
+<div class="card">
+  <span class="tag">CHAMPIONS LEAGUE</span>
+  <h3>European Football</h3>
+  <p>Discover European club football news and tournament highlights.</p>
+</div>
+
+<div class="card">
+  <span class="tag">BASKETBALL</span>
+  <h3>Basketball Updates</h3>
+  <p>Explore basketball teams, competitions and player news.</p>
+</div>
+
+<div class="card">
+  <span class="tag">TENNIS</span>
+  <h3>Tennis Updates</h3>
+  <p>Keep up with tennis tournaments and player performances.</p>
+</div>
+  
 <h2 class="section-title" id="fixtures">📅 Upcoming Fixtures</h2>
 
 <div class="card">
