@@ -58,6 +58,37 @@
       margin: auto;
     }
 
+    #teamDirectory {
+      max-width: 850px;
+      margin: 18px auto 0;
+      padding: 18px;
+    }
+
+    #teamDirectory input,
+    #teamDirectory select {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      background: #252525;
+      color: white;
+      border: 1px solid #c9a227;
+      border-radius: 7px;
+      box-sizing: border-box;
+    }
+
+    .team-item {
+      background: #171717;
+      border: 1px solid #393020;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 12px 0;
+    }
+
+    .team-item h3 {
+      color: #e8c35b;
+      margin-top: 0;
+    }
+
     .hero {
       background: linear-gradient(135deg, #29220e, #111);
       border: 1px solid #a8892c;
@@ -101,6 +132,7 @@
       padding: 11px 20px;
       border-radius: 6px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .bottom-nav {
@@ -172,11 +204,15 @@
 
     body.light-mode header,
     body.light-mode nav,
-    body.light-mode .bottom-nav {
+    body.light-mode .bottom-nav,
+    body.light-mode #teamDirectory,
+    body.light-mode .team-item,
+    body.light-mode .auth-box {
       background: #ffffff;
     }
 
-    body.light-mode .card {
+    body.light-mode .card,
+    body.light-mode .team-item {
       background: #ffffff;
       border-color: #d6b85a;
     }
@@ -423,14 +459,14 @@
     }
 
     function filterTeams() {
-      const search = document.getElementById("teamSearch").value.toLowerCase();
+      const search = document.getElementById("teamSearch").value.trim().toLowerCase();
       const league = document.getElementById("leagueFilter").value;
       const teams = document.querySelectorAll(".team-item");
       let count = 0;
 
       teams.forEach(team => {
-        const name = team.innerText.toLowerCase();
-        const matchesSearch = name.includes(search);
+        const text = team.textContent.toLowerCase();
+        const matchesSearch = !search || text.includes(search);
         const matchesLeague = league === "all" || team.dataset.league === league;
         const isVisible = matchesSearch && matchesLeague;
 
@@ -443,12 +479,17 @@
 
     function searchSports() {
       const search = document.getElementById("sportsSearch").value.trim().toLowerCase();
-      const searchableItems = document.querySelectorAll(".team-item, .container > .card:not(:first-child)");
+      const searchableItems = [
+        ...document.querySelectorAll(".team-item"),
+        ...document.querySelectorAll(".container .card")
+      ];
       let count = 0;
 
       searchableItems.forEach(item => {
-        const isVisible = !search || item.innerText.toLowerCase().includes(search);
-        item.style.display = isVisible ? "" : "none";
+        const text = item.textContent.toLowerCase();
+        const isVisible = !search || text.includes(search);
+        item.style.display = isVisible ? "block" : "none";
+
         if (isVisible && search) count++;
       });
 
@@ -488,6 +529,7 @@
     document.getElementById("leagueFilter").addEventListener("change", filterTeams);
 
     filterTeams();
+    searchSports();
   </script>
 </body>
 </html>
