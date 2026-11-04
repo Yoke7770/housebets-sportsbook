@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOUSEBETS | Premium Sports</title>
+function showLeague(league) {
+  document.querySelectorAll(".league-table")
+    .forEach(table => {
+      table.classList.remove("active");
+    });
 
+  document.getElementById(league)
+    .classList.add("active");
+}
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -114,6 +122,25 @@ body {
 .team-name {
   text-align: left;
   font-weight: bold;
+}
+  .league-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.league-tabs button {
+  white-space: nowrap;
+  min-width: 85px;
+}
+
+.league-table {
+  display: none;
+}
+
+.league-table.active {
+  display: block;
 }
 <style>
 * {
@@ -505,6 +532,55 @@ body.light-mode p {
   <p>Wins: 8 | Draws: 1 | Losses: 1</p>
   <p>Goals scored: 25</p>
   <span class="tag">DEMO STATISTICS</span>
+</div>
+  <h2 class="section-title">🏆 MULTI-LEAGUE TABLES</h2>
+
+<div class="league-tabs">
+  <button onclick="showLeague('epl')">Premier League</button>
+  <button onclick="showLeague('laliga')">La Liga</button>
+  <button onclick="showLeague('bundesliga')">Bundesliga</button>
+  <button onclick="showLeague('seriea')">Serie A</button>
+  <button onclick="showLeague('ligue1')">Ligue 1</button>
+</div>
+
+<div id="epl" class="card league-table active">
+  <h3>English Premier League</h3>
+  <p>1. Arsenal — 25 pts</p>
+  <p>2. Manchester City — 23 pts</p>
+  <p>3. Liverpool — 22 pts</p>
+  <span class="tag">SAMPLE DATA</span>
+</div>
+
+<div id="laliga" class="card league-table">
+  <h3>Spanish La Liga</h3>
+  <p>1. Real Madrid — 25 pts</p>
+  <p>2. Barcelona — 23 pts</p>
+  <p>3. Atlético Madrid — 20 pts</p>
+  <span class="tag">SAMPLE DATA</span>
+</div>
+
+<div id="bundesliga" class="card league-table">
+  <h3>German Bundesliga</h3>
+  <p>1. Bayern Munich — 25 pts</p>
+  <p>2. Bayer Leverkusen — 23 pts</p>
+  <p>3. Dortmund — 20 pts</p>
+  <span class="tag">SAMPLE DATA</span>
+</div>
+
+<div id="seriea" class="card league-table">
+  <h3>Italian Serie A</h3>
+  <p>1. Inter Milan — 25 pts</p>
+  <p>2. Juventus — 23 pts</p>
+  <p>3. AC Milan — 20 pts</p>
+  <span class="tag">SAMPLE DATA</span>
+</div>
+
+<div id="ligue1" class="card league-table">
+  <h3>French Ligue 1</h3>
+  <p>1. PSG — 25 pts</p>
+  <p>2. Monaco — 23 pts</p>
+  <p>3. Marseille — 20 pts</p>
+  <span class="tag">SAMPLE DATA</span>
 </div>
 <h2 class="section-title" id="news">📰 Sports News</h2>
 
