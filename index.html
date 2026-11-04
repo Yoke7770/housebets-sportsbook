@@ -129,7 +129,17 @@ footer {
 </nav>
 
 <div class="container">
-
+<div class="card">
+  <h3>🔎 Search Sports</h3>
+  <input
+    type="text"
+    id="sportsSearch"
+    placeholder="Search teams, leagues or sports..."
+    oninput="searchSports()"
+    style="width:100%;padding:14px;border-radius:8px;background:#222;color:white;border:1px solid #c9a227;"
+  >
+  <p id="searchMessage"></p>
+</div>
 <section class="hero" id="home">
   <p class="tag">WELCOME TO HOUSEBETS</p>
   <h1>THE WORLD OF SPORTS</h1>
