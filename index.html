@@ -5,6 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOUSEBETS | Premium Sports</title>
 
+</script> function filterTeams() {
+  const search = document
+    .getElementById("teamSearch")
+    .value.toLowerCase();
+
+  const league = document
+    .getElementById("leagueFilter")
+    .value;
+
+  const teams = document.querySelectorAll(".team-item");
+  let count = 0;
+
+  teams.forEach(team => {
+    const name = team.innerText.toLowerCase();
+
+    const matchesSearch = name.includes(search);
+
+    const matchesLeague =
+      league === "all" ||
+      team.dataset.league === league;
+
+    const show = matchesSearch && matchesLeague;
+
+    team.style.display = show ? "block" : "none";
+
+    if (show) count++;
+  });
+
+  document.getElementById("teamCount").textContent =
+    count + " teams found";
+}
+
+filterTeams();
 .bottom-nav {
   position: fixed;
   bottom: 0;
