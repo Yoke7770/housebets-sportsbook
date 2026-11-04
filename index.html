@@ -254,6 +254,53 @@ body.light-mode p {
   <a href="#news">NEWS</a>
 </nav>
 
+<div id="teamDirectory">
+
+  <div class="team-item" data-league="Premier League">
+    <h3>🔴 Manchester United</h3>
+    <p>England · Premier League</p>
+    <button onclick="showProfile('Manchester United','England','Premier League','Old Trafford')">View Profile</button>
+  </div>
+
+  <div class="team-item" data-league="Premier League">
+    <h3>🔵 Manchester City</h3>
+    <p>England · Premier League</p>
+    <button onclick="showProfile('Manchester City','England','Premier League','Etihad Stadium')">View Profile</button>
+  </div>
+
+  <div class="team-item" data-league="La Liga">
+    <h3>⚪ Real Madrid</h3>
+    <p>Spain · La Liga</p>
+    <button onclick="showProfile('Real Madrid','Spain','La Liga','Santiago Bernabéu')">View Profile</button>
+  </div>
+
+  <div class="team-item" data-league="La Liga">
+    <h3>🔵 Barcelona</h3>
+    <p>Spain · La Liga</p>
+    <button onclick="showProfile('Barcelona','Spain','La Liga','Spotify Camp Nou')">View Profile</button>
+  </div>
+
+  <div class="team-item" data-league="Bundesliga">
+    <h3>🔴 Bayern Munich</h3>
+    <p>Germany · Bundesliga</p>
+    <button onclick="showProfile('Bayern Munich','Germany','Bundesliga','Allianz Arena')">View Profile</button>
+  </div>
+
+  <div class="team-item" data-league="Serie A">
+    <h3>🔵 Inter Milan</h3>
+    <p>Italy · Serie A</p>
+    <button onclick="showProfile('Inter Milan','Italy','Serie A','San Siro')">View Profile</button>
+  </div>
+
+</div>
+
+<div id="teamProfile" class="card" style="display:none;">
+  <h2 id="profileName"></h2>
+  <p id="profileCountry"></p>
+  <p id="profileLeague"></p>
+  <p id="profileStadium"></p>
+  <button onclick="closeProfile()">Close Profile</button>
+</div>
 <div class="container">
 <div class="card">
   <h3>🔎 Search Sports</h3>
